@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="../style/quiz.css" />
     <script src="../../js/loadHeadFoot.js"></script>
     <script src="../js/loadAnswer.js"></script>
+    <script src="../js/sha256.js"></script>
+    <script src="../js/checksha.js"></script>
     <style>
       .comment {
         margin-right: 5%;
@@ -53,5 +55,27 @@
       </div>
       <div class="answer_wrapper" id="answer_wrapper"></div>
     </div>
+    <script>
+      function hankaku2Zenkaku(str) {
+        return str.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function (s) {
+          return String.fromCharCode(s.charCodeAt(0) - 0xfee0);
+        });
+      }
+      window.onload = (e) => {
+        const answer_button = document
+          .getElementsByClassName("answer_button")
+          .item(0);
+        const answer_input = document.getElementsByClassName("answer").item(0);
+        answer_button.addEventListener("click", async function () {
+          const result = await checksha256(
+            hankaku2Zenkaku(answer_input.value).replace('-',''),
+            "c6035e8aa677f99fe4f2ea6fe1ae591d79e4a83e5e5a59bcd5696dbdd637ee26"
+          );
+          if (result) {
+            alert("正解");
+          }
+        });
+      };
+    </script>
   </body>
 </html>

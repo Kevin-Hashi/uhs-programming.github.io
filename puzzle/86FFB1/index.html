@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="../style/quiz.css" />
     <script src="../../js/loadHeadFoot.js"></script>
     <script src="../js/loadAnswer.js"></script>
+    <script src="../js/sha256.js"></script>
+    <script src="../js/checksha.js"></script>
   </head>
   <body>
     <div class="part quiz_wrapper">
@@ -41,5 +43,22 @@
       </div>
       <div class="answer_wrapper" id="answer_wrapper"></div>
     </div>
+    <script>
+      window.onload = (e) => {
+        const answer_button = document
+          .getElementsByClassName("answer_button")
+          .item(0);
+        const answer_input = document.getElementsByClassName("answer").item(0);
+        answer_button.addEventListener("click", async function () {
+          const result = await checksha256(
+            answer_input.value,
+            "276ceefd508ec3c101052418928ea2ebd9eea444a11fd3433199bfa287470890"
+          );
+          if (result) {
+            alert("正解");
+          }
+        });
+      };
+    </script>
   </body>
 </html>
