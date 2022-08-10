@@ -26,9 +26,16 @@
 }
 .cross-link_wrapper > ul {
   list-style: none;
+  padding-left: 0px;
+  margin-top: 10px;
 }
 .cross-link_wrapper > p {
   line-height: 24px;
   font-size: x-large;
   margin-left: 5%;
+}
+.cross-link_wrapper>ul>li{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
