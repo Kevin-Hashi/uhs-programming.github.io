@@ -65,21 +65,29 @@
       <div class="answer_wrapper" id="answer_wrapper"></div>
     </div>
     <script>
-      window.onload = (e) => {
-        const answer_button = document
-          .getElementsByClassName("answer_button")
-          .item(0);
-        const answer_input = document.getElementsByClassName("answer").item(0);
-        answer_button.addEventListener("click", async function () {
-          const result = await checksha256(
-            answer_input.value,
-            "33a7fbadc6d1fa469ac0cc1b0252794cbb3d6397323d9e32a51b19bff140a8b8"
-          );
-          if (result) {
-            alert("正解");
+      const intervalId = setInterval(function () {
+        if (document.getElementsByClassName("answer_button") !== undefined) {
+          clearInterval(intervalId);
+          if (intervalId !== undefined) {
+            delete intervalId;
           }
-        });
-      };
+          const answer_button = document
+            .getElementsByClassName("answer_button")
+            .item(0);
+          const answer_input = document
+            .getElementsByClassName("answer")
+            .item(0);
+          answer_button.addEventListener("click", async function () {
+            const result = await checksha256(
+              answer_input.value,
+              "33a7fbadc6d1fa469ac0cc1b0252794cbb3d6397323d9e32a51b19bff140a8b8"
+            );
+            if (result) {
+              alert("正解");
+            }
+          });
+        }
+      }, 100);
     </script>
   </body>
 </html>
