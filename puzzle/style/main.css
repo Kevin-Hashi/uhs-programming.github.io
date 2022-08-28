@@ -1,3 +1,7 @@
+.quiz_start_wrapper{
+  display: flex;
+  justify-content: center;
+}
 .title-1 {
   font-size: x-large;
   padding: 20px;
