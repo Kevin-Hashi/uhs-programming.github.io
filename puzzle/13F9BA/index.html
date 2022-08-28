@@ -63,6 +63,9 @@
         <p>Plain :????????????</p>
       </div>
       <div class="answer_wrapper" id="answer_wrapper"></div>
+      <div class="next_wrapper">
+        <a class="next hide link_text" href="../832156">次の問題に進む</a>
+      </div>
     </div>
     <script>
       const intervalId = setInterval(function () {
@@ -83,7 +86,13 @@
               "33a7fbadc6d1fa469ac0cc1b0252794cbb3d6397323d9e32a51b19bff140a8b8"
             );
             if (result) {
-              alert("正解");
+              alert("正解です！");
+              document
+                .getElementsByClassName("next")
+                .item(0)
+                .classList.remove("hide");
+            } else {
+              alert("不正解です...");
             }
           });
         }

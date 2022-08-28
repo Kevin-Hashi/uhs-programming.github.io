@@ -2,7 +2,7 @@
   margin-left: 5%;
 }
 .sentence > p {
-  font-family: "JetBrains Mono","M PLUS 1 Code";
+  font-family: "JetBrains Mono", "M PLUS 1 Code";
   font-size: larger;
 }
 .answer_wrapper {
@@ -43,4 +43,22 @@
   line-height: 35px;
   font-size: 35px;
   font-family: "Jetbrains Mono", "M PLUS 1 Code";
+}
+.next_wrapper {
+  display: flex;
+  justify-content: center;
+}
+.next {
+  display: inline-block;
+  font-size: x-large;
+  padding: 20px;
+  border-radius: 20px;
+  border: 5px solid lightsteelblue;
+  width: fit-content;
+  margin-top: 20px;
+  margin: 20px auto 0 auto;
+  height: auto;
+}
+.hide {
+  display: none;
 }
