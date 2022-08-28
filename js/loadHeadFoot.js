@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const XSerializer = new XMLSerializer();
     link.insertAdjacentHTML('beforebegin', `<link rel="stylesheet" href="${path}style/bootstrap-reboot.css" />`)
     head.insertAdjacentHTML('beforeend', `<style>@font-face{font-family:"JetBrains Mono";src:url("../../font/JetBrainsMono-VariableFont_wght.ttf") format("truetype");}</style>`)
+    head.insertAdjacentHTML('beforeend', `<style>@font-face{font-family:"M PLUS 1 Code";src:url("../../font/MPLUS1Code-VariableFont_wght.ttf") format("truetype");}</style>`)
     fetch(path + '/header.html')
         .then((res) => res.text())
         .then((text) => {

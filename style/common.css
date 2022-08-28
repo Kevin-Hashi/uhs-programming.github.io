@@ -22,6 +22,9 @@
   user-select: none; /* Non-prefixed version, currently
                             supported by Chrome and Opera */
 }
+.link {
+  font-family: "JetBrains Mono";
+}
 .link_text {
   color: black;
 }

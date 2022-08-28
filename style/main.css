@@ -1,0 +1,17 @@
+.text {
+  font-family: "M PLUS 1 Code";
+}
+.content {
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: xx-large;
+  border: 2px solid lightsteelblue;
+  border-radius: 5px;
+  width: fit-content;
+}
+.guide {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
