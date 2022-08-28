@@ -26,13 +26,13 @@
       name="viewport"
       content="width=device-width, inital-scale=1, user-scalable=no"
     />
-    <link rel="stylesheet" href="./style/common.css" />
+    <link rel="stylesheet" href="../style/common.css" />
     <link rel="stylesheet" href="./style/main.css" />
     <script src="../js/loadHeadFoot.js"></script>
   </head>
   <body>
     <div class="part">
-      <div class="title-1 noselect">謎解き開始</div>
+      <div class="title-1 noselect" onclick="start()">謎解き開始</div>
     </div>
     <div class="part">
       <div class="cross-link_wrapper">
@@ -58,5 +58,10 @@
         </ul>
       </div>
     </div>
+    <script>
+      function start() {
+        location.href = "./86FFB1";
+      }
+    </script>
   </body>
 </html>
