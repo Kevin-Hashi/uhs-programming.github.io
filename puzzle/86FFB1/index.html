@@ -62,25 +62,29 @@
     </div>
     <script>
       window.addEventListener("load", function () {
-        const answer_button = document
-          .getElementsByClassName("answer_button")
-          .item(0);
-        const answer_input = document.getElementsByClassName("answer").item(0);
-        answer_button.addEventListener("click", async function () {
-          const result = await checksha256(
-            answer_input.value,
-            "276ceefd508ec3c101052418928ea2ebd9eea444a11fd3433199bfa287470890"
-          );
-          if (result) {
-            alert("正解です！");
-            document
-              .getElementsByClassName("next")
-              .item(0)
-              .classList.remove("hide");
-          } else {
-            alert("不正解です...");
-          }
-        });
+        setTimeout(function () {
+          const answer_button = document
+            .getElementsByClassName("answer_button")
+            .item(0);
+          const answer_input = document
+            .getElementsByClassName("answer")
+            .item(0);
+          answer_button.addEventListener("click", async function () {
+            const result = await checksha256(
+              answer_input.value,
+              "276ceefd508ec3c101052418928ea2ebd9eea444a11fd3433199bfa287470890"
+            );
+            if (result) {
+              alert("正解です！");
+              document
+                .getElementsByClassName("next")
+                .item(0)
+                .classList.remove("hide");
+            } else {
+              alert("不正解です...");
+            }
+          });
+        }, 200);
       });
     </script>
   </body>
