@@ -80,35 +80,27 @@
           return String.fromCharCode(s.charCodeAt(0) - 0xfee0);
         });
       }
-      const intervalId = setInterval(function () {
-        if (document.getElementsByClassName("answer_button") !== undefined) {
-          clearInterval(intervalId);
-          if (intervalId !== undefined) {
-            delete intervalId;
+      window.addEventListener("load", function () {
+        const answer_button = document
+          .getElementsByClassName("answer_button")
+          .item(0);
+        const answer_input = document.getElementsByClassName("answer").item(0);
+        answer_button.addEventListener("click", async function () {
+          const result = await checksha256(
+            hankaku2Zenkaku(answer_input.value).replace("-", ""),
+            "c6035e8aa677f99fe4f2ea6fe1ae591d79e4a83e5e5a59bcd5696dbdd637ee26"
+          );
+          if (result) {
+            alert("正解です！");
+            document
+              .getElementsByClassName("next")
+              .item(0)
+              .classList.remove("hide");
+          } else {
+            alert("不正解です...");
           }
-          const answer_button = document
-            .getElementsByClassName("answer_button")
-            .item(0);
-          const answer_input = document
-            .getElementsByClassName("answer")
-            .item(0);
-          answer_button.addEventListener("click", async function () {
-            const result = await checksha256(
-              hankaku2Zenkaku(answer_input.value).replace("-", ""),
-              "c6035e8aa677f99fe4f2ea6fe1ae591d79e4a83e5e5a59bcd5696dbdd637ee26"
-            );
-            if (result) {
-              alert("正解です！");
-              document
-                .getElementsByClassName("next")
-                .item(0)
-                .classList.remove("hide");
-            } else {
-              alert("不正解です...");
-            }
-          });
-        }
-      }, 100);
+        });
+      });
     </script>
   </body>
 </html>
